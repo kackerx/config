@@ -1,0 +1,31 @@
+{
+  "title": "Tapping modifier-keys produces a f-key.",
+  "rules": [
+    {
+      "description": "Change left_shift to F17 when used alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f17"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
