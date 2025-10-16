@@ -1,0 +1,12 @@
+
+[[Snippets]]
+  Description = "ps"
+  Output = ""
+  Tag = ["ws"]
+  command = "{\"a\":\"ps\",\"ch\":\"__action_trigger_viw65ac8f38-417c-49be-bcc\",\"seq\":6}"
+
+[[Snippets]]
+  Description = "curl"
+  Output = ""
+  Tag = ["http"]
+  command = "curl http://http.org/get"

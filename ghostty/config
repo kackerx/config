@@ -1,0 +1,40 @@
+# ------------------------------------------------
+# Ghostty 正确的配置文件格式
+# ------------------------------------------------
+
+# -- 窗口和外观设置 --
+
+# 设置背景颜色
+# background = "#282a36"
+
+# 设置背景透明度 (0.0 到 1.0)
+background-opacity = 0.95
+
+# 设置背景图片
+# 将 "/path/to/your/image.jpg" 替换成你自己的图片绝对路径
+# background-image = "/path/to/your/image.jpg"
+
+# 背景图片的模糊效果，数值越大越模糊 (例如: 2.0)
+# background-image-blur = 2.0
+
+# 背景图片的亮度 (0.0 到 1.0)
+# background-image-brightness = 0.8
+
+
+# -- 字体设置 --
+
+# 设置字体家族
+# 确保字体名称是正确的，并且已经在你的系统上安装
+# 例如: "JetBrains Mono", "Fira Code", "Hack Nerd Font"
+font-family = "Andale Mono"
+
+# 设置字体大小
+font-size = 12.0
+
+# (可选) 启用字体连字 (ligatures)
+# font-features = ["+liga", "+calt"]
+
+# (可选) 调整字符间距
+# letter-spacing = 1.0
+
+theme = "GitLab-Dark"

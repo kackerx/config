@@ -26,8 +26,8 @@ recent.display_filter: tcp.port == 80
 
 # Main window geometry.
 # Decimal numbers.
-gui.geometry_main_x: 276
-gui.geometry_main_y: 95
+gui.geometry_main_x: 205
+gui.geometry_main_y: 78
 gui.geometry_main_width: 960
 gui.geometry_main_height: 768
 
