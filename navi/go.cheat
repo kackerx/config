@@ -1,0 +1,79 @@
+% go snap
+
+# buffer pool encode 
+
+bat --file-name="buffer pool encode" -l go <<'EOF'
+var bufferPool = sync.Pool{
+    New: func() interface{} {
+        return new(bytes.Buffer)
+    },
+}
+
+func EncodeResponse(data interface{}) ([]byte, error) {
+    buf := bufferPool.Get().(*bytes.Buffer)
+    defer func() {
+        buf.Reset()
+        bufferPool.Put(buf)
+    }()
+
+    encoder := json.NewEncoder(buf)
+    if err := encoder.Encode(data); err != nil {
+        return nil, err
+    }
+
+    result := make([]byte, buf.Len())
+    copy(result, buf.Bytes())
+    return result, nil
+}
+EOF
+
+
+% go slice snap
+
+# [slice] s[:0]
+
+bat --file-name="s[:0]" -l go <<'EOF'
+func double(dst []int, src []int) []int {
+    dst = dst[:0] // 重用底层数组
+    if cap(dst) < len(src) {
+        dst = make([]int, 0, len(src))
+    }
+    for _, v := range src {
+        dst = append(dst, v*2)
+    }
+    return dst
+}
+EOF
+
+# [slice] in place filter
+
+bat --file-name="in-place filter" -l go <<'EOF'
+func filterEven(a []int) []int {
+    out := a[:0]
+    for _, v := range a {
+        if v%2 == 0 {
+            out = append(out, v)
+        }
+    }
+    return out
+}
+EOF
+
+# [slice] O(1)删除
+
+bat --file-name="O(1) del" -l go <<'EOF'
+func removeUnordered(a []int, i int) []int {
+    a[i] = a[len(a)-1]
+    return a[:len(a)-1]
+}
+EOF
+
+% go string snap
+
+# byte to string 
+
+bat --file-name="[]byte to string, []byte不可变" -l go <<'EOF'
+func bytesToString(b []byte) string {
+    return *(*string)(unsafe.Pointer(&b))
+}
+EOF

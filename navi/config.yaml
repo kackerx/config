@@ -1,0 +1,18 @@
+style:
+  tag:
+    color: white
+    width_percentage: 20 # column width relative to the terminal window
+    min_width: 15 # minimum column width as number of characters
+  comment:
+    color: blue
+    width_percentage: 42
+    min_width: 45
+  snippet:
+    color: red
+
+cheats:
+  paths:
+    - ~/.config/navi
+    - ~/.local/share/navi/cheats
+
+

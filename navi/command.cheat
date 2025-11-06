@@ -1,0 +1,9 @@
+% commmand
+
+# fd exclude 
+
+fd --exclude "<keyword>" <dir>
+
+$ keyword: echo -e "\n"
+$ dir: echo -e ".\n"
+

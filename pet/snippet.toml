@@ -2,7 +2,7 @@
 [[Snippets]]
   Description = "ps"
   Output = ""
-  Tag = ["ws"]
+  Tag = ["req"]
   command = "{\"a\":\"ps\",\"ch\":\"__action_trigger_viw65ac8f38-417c-49be-bcc\",\"seq\":6}"
 
 [[Snippets]]
@@ -10,3 +10,45 @@
   Output = ""
   Tag = ["http"]
   command = "curl http://http.org/get"
+
+[[Snippets]]
+  Description = "qs"
+  Output = ""
+  Tag = ["json"]
+  command = "{\"a\":\"qs\",\"id\":4,\"c\":\"rec_tbl0c159764-491e-4815-b9c\",\"q\":{\"viewId\":\"viw65ac8f38-417c-49be-bcc\",\"skip\":0,\"take\":3000,\"type\":\"rec\"}}"
+
+[[Snippets]]
+  Description = "tsh login"
+  Output = ""
+  Tag = ["tsh"]
+  command = "tsh login --proxy=teleport.g123.io:443 teleport-g123"
+
+[[Snippets]]
+  Description = "tsh forward"
+  Output = ""
+  Tag = ["tsh"]
+  command = "tsh kubectl port-forward svc/doraemon-cluster-rw -n g123-data-cnpg 5433:5432 > /dev/null 2>&1 &"
+
+[[Snippets]]
+  Description = "tsh kubelogin"
+  Output = ""
+  Tag = ["tsh"]
+  command = "tsh kube login g123-stg-k8s-130-eks-ap-northeast-1-937704758764"
+
+[[Snippets]]
+  Description = "clean cache"
+  Output = ""
+  Tag = []
+  command = "curl --request DELETE \\\\n  --url https://d.stg.g123.jp/api/v1/internal/cache \\\\n  --header \"Authorization: Bearer $token_stg\" \\\\n  --data '{\"key\": \"p:employees:wang.kaixuan@ctw.inc\"}'"
+
+[[Snippets]]
+  Description = "curl del cache local"
+  Output = ""
+  Tag = []
+  command = "curl --request DELETE --url http://localhost:9527/api/v1/internal/cache --header \"Authorization: Bearer $token_stg\" --data '{\"key\": \"p:employees:wang.kaixuan@ctw.inc\"}'"
+
+[[Snippets]]
+  Description = "curl del cache stg"
+  Output = ""
+  Tag = []
+  command = "curl --request DELETE --url https://d.stg.g123.jp/api/v1/internal/cache --header \"Authorization: Bearer $token_stg\" --data '{\"key\": \"p:employees:wang.kaixuan@ctw.inc\"}'"

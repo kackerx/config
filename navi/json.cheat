@@ -1,0 +1,16 @@
+% json
+
+# copyjson
+
+printf '\n' && echo '<json>' | tee >(jq | pbcopy) | jq -C
+
+$ json:
+
+# [qs] record
+
+echo '{"a":"qs","id":4,"c":"<tid>","q":{"viewId":"<vid>","skip":0,"take":3000,"type":"rec"}}' | tee >(jq | pbcopy) | jq -C   
+
+$ tid: printf "rec_tbl0c159764-491e-4815-b9c\nAnno"
+$ vid: printf "viwd3qqm5bcsm7c73d5j390\nAnnoak"
+
+

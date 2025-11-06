@@ -1,0 +1,19 @@
+% linux snap
+
+# cat tee file
+
+bat -l bash <<'EF'
+cat <<'EOF' | tee b.txt
+abc
+cdf
+EOF
+EF
+
+# bat snap cheat
+
+bat -l go <<'EF' 
+bat -l go <<'EOF' 
+
+
+EOF
+EF
