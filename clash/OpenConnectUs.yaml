@@ -12,51 +12,53 @@ dns:
     fake-ip-range: 198.18.0.1/16
     use-hosts: true
     nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-    fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
+    fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853', 'https://dns.alidns.com/dns-query', 'https://sm2.doh.pub/dns-query', 'https://doh.360.cn/dns-query']
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
-    - { name: 香港|HK7322|G02, type: ss, server: sh2002.vip01234.net, port: 7322, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 美国|US7301|G02, type: ss, server: sh2002.vip01234.net, port: 7301, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 加拿大|CA7202|G02, type: ss, server: sh2002.vip01234.net, port: 7202, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 英国|UK7211|G02, type: ss, server: sh2002.vip01234.net, port: 7211, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 德国|GE2012, type: ss, server: gz2201.vip01234.net, port: 7212, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 法国|FR2013|G02, type: ss, server: sh2002.vip01234.net, port: 7213, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 沙特阿拉伯|JED2014, type: ss, server: gz2201.vip01234.net, port: 7214, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 意大利|IT2015, type: ss, server: gz2201.vip01234.net, port: 7215, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 比利时|BEL2016, type: ss, server: gz2201.vip01234.net, port: 7216, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 俄罗斯|RU7217|G02, type: ss, server: sh2002.vip01234.net, port: 7217, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 土耳其|TK2018, type: ss, server: gz2201.vip01234.net, port: 7218, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 阿联酋|UAE2019, type: ss, server: gz2201.vip01234.net, port: 7219, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 挪威|NO2040, type: ss, server: gz2201.vip01234.net, port: 7240, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 荷兰|NETH2041, type: ss, server: gz2201.vip01234.net, port: 7241, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 西班牙|SP2042, type: ss, server: gz2201.vip01234.net, port: 7242, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 埃及|EG2043, type: ss, server: gz2201.vip01234.net, port: 7243, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 瑞典|SW2044, type: ss, server: gz2201.vip01234.net, port: 7244, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 以色列|IS2045, type: ss, server: gz2201.vip01234.net, port: 7245, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 波兰|PL2046, type: ss, server: gz2201.vip01234.net, port: 7246, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 乌克兰|URK2047, type: ss, server: gz2201.vip01234.net, port: 7247, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 芬兰|FIN2048, type: ss, server: gz2201.vip01234.net, port: 7248, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 葡萄牙|PT2049, type: ss, server: gz2201.vip01234.net, port: 7249, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 奥地利|AUS2050, type: ss, server: gz2201.vip01234.net, port: 7250, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 冰岛|ICE2051, type: ss, server: gz2201.vip01234.net, port: 7251, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 日本|JP2021|G02, type: ss, server: sh2002.vip01234.net, port: 7221, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 新西兰|NZ2022, type: ss, server: gz2201.vip01234.net, port: 7222, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 澳大利亚|AU2023, type: ss, server: gz2201.vip01234.net, port: 7223, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 韩国|KR2024|G02, type: ss, server: sh2002.vip01234.net, port: 7224, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 印度尼西亚|IDN2031, type: ss, server: gz2201.vip01234.net, port: 7231, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 马来西亚|MY2032, type: ss, server: gz2201.vip01234.net, port: 7232, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 泰国|TH2033, type: ss, server: gz2201.vip01234.net, port: 7233, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 台湾|TW2035|G02, type: ss, server: sh2002.vip01234.net, port: 7235, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 新加坡|SG2034, type: ss, server: gz2201.vip01234.net, port: 7234, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 菲律宾|PH2036|G02, type: ss, server: sh2002.vip01234.net, port: 7236, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 越南|VN2037, type: ss, server: gz2201.vip01234.net, port: 7237, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 印度|INDIA2038, type: ss, server: gz2201.vip01234.net, port: 7238, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 巴西|BZ2051, type: ss, server: gz2201.vip01234.net, port: 7251, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 墨西哥|MX2052|G02, type: ss, server: sh2002.vip01234.net, port: 7252, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
-    - { name: 阿根廷|ARG2053|G02, type: ss, server: sh2002.vip01234.net, port: 7253, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 香港|HK2022|G01, type: ss, server: sh2004.vip01234.net, port: 7222, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 美国|US2001|G01, type: ss, server: sh2004.vip01234.net, port: 7201, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 加拿大|CA2002|G01, type: ss, server: sh2004.vip01234.net, port: 7202, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 英国|UK2011|G01, type: ss, server: sh2004.vip01234.net, port: 7211, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 德国|GE2012, type: ss, server: gz2203.vip01234.net, port: 7212, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 法国|FR2013, type: ss, server: gz2203.vip01234.net, port: 7213, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 沙特阿拉伯|JED2014, type: ss, server: gz2203.vip01234.net, port: 7214, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 意大利|IT2015, type: ss, server: gz2203.vip01234.net, port: 7215, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 比利时|BEL2016, type: ss, server: gz2203.vip01234.net, port: 7216, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 俄罗斯|RU2017|G01, type: ss, server: sh2004.vip01234.net, port: 7217, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 土耳其|TK2018, type: ss, server: gz2203.vip01234.net, port: 7218, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 阿联酋|UAE2019, type: ss, server: gz2203.vip01234.net, port: 7219, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 挪威|NO2040, type: ss, server: gz2203.vip01234.net, port: 7240, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 荷兰|NETH2041, type: ss, server: gz2203.vip01234.net, port: 7241, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 西班牙|SP2042, type: ss, server: gz2203.vip01234.net, port: 7242, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 埃及|EG2043, type: ss, server: gz2203.vip01234.net, port: 7243, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 瑞典|SW2044, type: ss, server: gz2203.vip01234.net, port: 7244, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 以色列|IS2045, type: ss, server: gz2203.vip01234.net, port: 7245, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 波兰|PL2046, type: ss, server: gz2203.vip01234.net, port: 7246, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 乌克兰|URK2047, type: ss, server: gz2203.vip01234.net, port: 7247, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 芬兰|FIN2048, type: ss, server: gz2203.vip01234.net, port: 7248, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 葡萄牙|PT2049, type: ss, server: gz2203.vip01234.net, port: 7249, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 奥地利|AUS2050, type: ss, server: gz2203.vip01234.net, port: 7250, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 巴西|BZ2051, type: ss, server: gz2203.vip01234.net, port: 7251, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 墨西哥|MX2052|G01, type: ss, server: sh2004.vip01234.net, port: 7252, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 阿根廷|ARG2053|G01, type: ss, server: sh2004.vip01234.net, port: 7253, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 冰岛|ICE2054, type: ss, server: gz2203.vip01234.net, port: 7254, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 罗马尼亚|RO2055, type: ss, server: gz2203.vip01234.net, port: 7255, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 希腊|GREECE2056, type: ss, server: gz2203.vip01234.net, port: 7256, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
     - { name: 南非|SA2061, type: ss, server: gz2201.vip01234.net, port: 7261, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 日本|JP2021|G01, type: ss, server: sh2004.vip01234.net, port: 7221, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 新西兰|NZ2022, type: ss, server: gz2203.vip01234.net, port: 7222, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 澳大利亚|AU2023, type: ss, server: gz2203.vip01234.net, port: 7223, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 韩国|KR2024|G01, type: ss, server: sh2004.vip01234.net, port: 7224, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 印度尼西亚|IDN2031, type: ss, server: gz2203.vip01234.net, port: 7231, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 马来西亚|MY2032, type: ss, server: gz2203.vip01234.net, port: 7232, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 泰国|TH2033, type: ss, server: gz2203.vip01234.net, port: 7233, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 台湾|TW2035|G01, type: ss, server: sh2004.vip01234.net, port: 7235, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 新加坡|SG2034, type: ss, server: gz2203.vip01234.net, port: 7234, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 菲律宾|PH2036|G01, type: ss, server: sh2004.vip01234.net, port: 7236, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 越南|VN2037, type: ss, server: gz2203.vip01234.net, port: 7237, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
+    - { name: 印度|INDIA2038, type: ss, server: gz2203.vip01234.net, port: 7238, cipher: aes-128-gcm, password: 7576ccf2-d0bb-4516-b59e-145d48bae005, udp: true }
 proxy-groups:
-    - { name: OpenConnectUs, type: select, proxies: [香港|HK7322|G02, 美国|US7301|G02, 加拿大|CA7202|G02, 英国|UK7211|G02, 德国|GE2012, 法国|FR2013|G02, 沙特阿拉伯|JED2014, 意大利|IT2015, 比利时|BEL2016, 俄罗斯|RU7217|G02, 土耳其|TK2018, 阿联酋|UAE2019, 挪威|NO2040, 荷兰|NETH2041, 西班牙|SP2042, 埃及|EG2043, 瑞典|SW2044, 以色列|IS2045, 波兰|PL2046, 乌克兰|URK2047, 芬兰|FIN2048, 葡萄牙|PT2049, 奥地利|AUS2050, 冰岛|ICE2051, 日本|JP2021|G02, 新西兰|NZ2022, 澳大利亚|AU2023, 韩国|KR2024|G02, 印度尼西亚|IDN2031, 马来西亚|MY2032, 泰国|TH2033, 台湾|TW2035|G02, 新加坡|SG2034, 菲律宾|PH2036|G02, 越南|VN2037, 印度|INDIA2038, 巴西|BZ2051, 墨西哥|MX2052|G02, 阿根廷|ARG2053|G02, 南非|SA2061] }
+    - { name: OpenConnectUs, type: select, proxies: [香港|HK2022|G01, 美国|US2001|G01, 加拿大|CA2002|G01, 英国|UK2011|G01, 德国|GE2012, 法国|FR2013, 沙特阿拉伯|JED2014, 意大利|IT2015, 比利时|BEL2016, 俄罗斯|RU2017|G01, 土耳其|TK2018, 阿联酋|UAE2019, 挪威|NO2040, 荷兰|NETH2041, 西班牙|SP2042, 埃及|EG2043, 瑞典|SW2044, 以色列|IS2045, 波兰|PL2046, 乌克兰|URK2047, 芬兰|FIN2048, 葡萄牙|PT2049, 奥地利|AUS2050, 巴西|BZ2051, 墨西哥|MX2052|G01, 阿根廷|ARG2053|G01, 冰岛|ICE2054, 罗马尼亚|RO2055, 希腊|GREECE2056, 南非|SA2061, 日本|JP2021|G01, 新西兰|NZ2022, 澳大利亚|AU2023, 韩国|KR2024|G01, 印度尼西亚|IDN2031, 马来西亚|MY2032, 泰国|TH2033, 台湾|TW2035|G01, 新加坡|SG2034, 菲律宾|PH2036|G01, 越南|VN2037, 印度|INDIA2038] }
 rules:
     - 'DOMAIN,openconnectus.com,DIRECT'
     - 'DOMAIN-SUFFIX,partneradvantage.goog,OpenConnectUs'

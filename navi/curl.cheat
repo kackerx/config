@@ -1,0 +1,23 @@
+% debug curl
+
+# delete cache
+
+curl --request DELETE \
+	--url $HOST/internal/cache \
+	--header "Authorization: Bearer $TOKEN" \
+	--data '{"key": "<data>"}'
+
+$ data: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
+
+
+# query cache
+
+curl --request POST \
+	--url $HOST/internal/cache \
+	--header "Authorization: Bearer $TOKEN" \
+	--data '{"op": "<op>", "args": ["<args>"]}' | jq -C   
+
+$ op: echo -e "get\nkeys"
+$ args: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
+
+

@@ -1,0 +1,34 @@
+% git diff
+
+# 未暂存更改, 要add什么
+
+git diff 
+
+
+# 未暂存文件更改, 文件要add什么
+git diff -- <file_path>
+
+$ file_path: 
+
+# 已暂存更改, 要commit什么
+
+git diff --staged
+
+$ file_path: 
+
+# 已暂存更改, 文件要commit什么
+
+git diff --staged -- <file_path>
+
+$ file_path: 
+
+# 查看所有修改 (已暂存 + 未暂存)
+git diff HEAD
+
+# 只看某个文件的所有修改
+git diff HEAD -- <file_path>
+
+# 比较某个 commit 和它上一个 commit 的差异
+git diff HEAD^ HEAD
+
+
