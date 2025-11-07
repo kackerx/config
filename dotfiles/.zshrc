@@ -430,7 +430,7 @@ function pet-copy() {
 zle -N pet-copy
 bindkey '^o' pet-copy
 
-source '$HOME/.config/fzf-git.sh'
+source "$HOME/.config/fzf-git.sh"
 export PATH="$HOME/.local/bin:$PATH"
 
 autoload -U compinit; compinit
