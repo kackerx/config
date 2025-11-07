@@ -162,7 +162,7 @@ fi
 # fi
 
 
-bindkey '^v' edit-command-line
+# bindkey '^v' edit-command-line
 bindkey -v
 # bindkey -M vicmd "u" vi-insert
 # bindkey -M vicmd "U" vi-insert-bol
@@ -436,14 +436,14 @@ export PATH="$HOME/.local/bin:$PATH"
 autoload -U compinit; compinit
 source ~/.config/fzftab/fzf-tab.plugin.zsh
 
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 function oo() {
-	navi --fzf-overrides '--no-exact'
+	navi --fzf-overrides '--no-exact --layout=reverse'
 }
 zle -N oo
 bindkey '^p' oo
