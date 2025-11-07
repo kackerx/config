@@ -489,8 +489,8 @@ function swenv() {
 # 1. 定义一个函数作为我们的小部件
 ji-widget() {
 	ji
-	# 命令退出后，让 ZLE (Zsh Line Editor) 重新绘制界面，确保提示符干净
-	zle redisplay
+	zle accept-line
+	# zle redisplay
 }
 
 # 2. 告诉 ZLE 这个函数是一个新的小部件

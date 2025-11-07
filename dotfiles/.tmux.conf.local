@@ -405,7 +405,7 @@ set -g @fuzzback-bind f
 set -g @fuzzback-popup 1
 set -g @fuzzback-popup-size '70%'
 set -g @fuzzback-finder-layout 'reverse'
-set -g @fuzzback-fzf-colors 'bg+:#100E23,gutter:#323F4E,pointer:#F48FB1,info:#ffe6b3,hl:#F48FB1,hl+:#63f2f1'
+# set -g @fuzzback-fzf-colors 'bg+:#100E23,gutter:#323F4E,pointer:#F48FB1,info:#ffe6b3,hl:#F48FB1,hl+:#63f2f1'
 
 # -- custom variables ----------------------------------------------------------
 
