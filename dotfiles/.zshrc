@@ -484,3 +484,16 @@ function swenv() {
 
   echo "✅ Successfully loaded environment from [${env_file}]."
 }
+
+# 1. 定义一个函数作为我们的小部件
+ji-widget() {
+	BUFFER="ji"      # 将当前命令行缓冲区的内容设置为 "ji"
+	zle accept-line  # 调用 ZLE 的 accept-line 功能，相当于按下 Enter
+}
+
+# 2. 告诉 ZLE 这个函数是一个新的小部件
+zle -N ji-widget
+
+# 3. 将 Ctrl+j 绑定到这个新的小部件上
+bindkey '^J' ji-widget
+
