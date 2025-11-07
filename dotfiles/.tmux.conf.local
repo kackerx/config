@@ -442,5 +442,5 @@ unbind-key [
 # 将 Prefix + q 绑定为进入复制模式
 bind-key q copy-mode
 
-
+bind-key -n C-k send-keys -R \; send-keys C-l
 
