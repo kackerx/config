@@ -162,7 +162,7 @@ fi
 # fi
 
 
-bindkey '^v' edit-command-line
+# bindkey '^v' edit-command-line
 bindkey -v
 # bindkey -M vicmd "u" vi-insert
 # bindkey -M vicmd "U" vi-insert-bol
@@ -306,6 +306,7 @@ export PATH="$PATH":"/usr/local/Caskroom/flutter/2.0.3/flutter/.pub-cache/bin"
 
 # zoxide
 eval "$(zoxide init zsh --cmd j)"
+# eval "$(navi widget zsh)"
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -430,20 +431,20 @@ function pet-copy() {
 zle -N pet-copy
 bindkey '^o' pet-copy
 
-source '$HOME/.config/fzf-git.sh'
+source "$HOME/.config/fzf-git.sh"
 export PATH="$HOME/.local/bin:$PATH"
 
 autoload -U compinit; compinit
 source ~/.config/fzftab/fzf-tab.plugin.zsh
 
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 function oo() {
-	navi --fzf-overrides '--no-exact'
+	navi --fzf-overrides '--no-exact --layout=reverse'
 }
 zle -N oo
 bindkey '^p' oo
@@ -484,3 +485,31 @@ function swenv() {
 
   echo "✅ Successfully loaded environment from [${env_file}]."
 }
+
+# 1. 定义一个函数作为我们的小部件
+ji-widget() {
+	ji
+	zle accept-line
+	# zle redisplay
+}
+
+# 2. 告诉 ZLE 这个函数是一个新的小部件
+zle -N ji-widget
+
+# 3. 将 Ctrl+j 绑定到这个新的小部件上
+bindkey '^J' ji-widget
+
+# 1. 定义一个新的小部件
+silent-lazygit-widget() {
+	# 直接在函数中调用命令，而不是把它放到命令行缓冲区
+	lazygit
+	# 命令退出后，让 ZLE (Zsh Line Editor) 重新绘制界面，确保提示符干净
+	zle redisplay
+}
+
+# 2. 告诉 ZLE 这是一个新的小部件
+zle -N silent-lazygit-widget
+
+# 3. 绑定快捷键 (仍然推荐使用 Ctrl-g)
+bindkey '^g' silent-lazygit-widget
+

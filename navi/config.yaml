@@ -15,4 +15,8 @@ cheats:
     - ~/.config/navi
     - ~/.local/share/navi/cheats
 
+finder:
+  fzf:
+    options: '--layout=reverse'
+
 
