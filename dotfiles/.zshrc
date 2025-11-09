@@ -93,6 +93,11 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # Initialize modules
 # ------------------
 # export FZF_GIT_KEY='^x'
+autoload -Uz compinit; compinit
+source ~/.config/fzftab/fzf-tab.plugin.zsh
+# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
@@ -368,7 +373,7 @@ fzfp() {
 		--header 'CTRL-T: Switch between rg/fzf' \
 		--preview 'bat --color=always {1} --highlight-line {2}' \
 		--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-		--bind 'enter:become(nvim {1} +{2})'
+		--bind 'enter:become(code {1} +{2})'
 }
 
  _fzf_project_widget() {
@@ -433,9 +438,6 @@ bindkey '^o' pet-copy
 
 source "$HOME/.config/fzf-git.sh"
 export PATH="$HOME/.local/bin:$PATH"
-
-autoload -U compinit; compinit
-source ~/.config/fzftab/fzf-tab.plugin.zsh
 
 # zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
