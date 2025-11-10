@@ -452,7 +452,7 @@ zle -N oo
 bindkey '^p' oo
 
 function swenv() {
-  local env_dir="$HOME/k/env"
+  local env_dir="$HOME/.config/env"
   local shared_file="$env_dir/.env.share"
 
   # 如果没有提供参数，则列出可用环境
