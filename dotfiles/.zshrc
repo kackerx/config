@@ -447,6 +447,8 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 function oo() {
 	navi --fzf-overrides '--no-exact --layout=reverse'
+	zle accept-line
+	# zle redisplay
 }
 zle -N oo
 bindkey '^p' oo

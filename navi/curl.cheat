@@ -10,7 +10,7 @@ curl --request DELETE \
 $ data: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
 
 
-# query cache
+# get cache
 
 curl --request POST \
 	--url $HOST/internal/cache \
@@ -20,4 +20,14 @@ curl --request POST \
 $ op: echo -e "get\nkeys"
 $ args: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
 
+# get user info 
 
+curl -sS --request POST \
+	--url https://p-api<env>.g123.jp/api/v1/external/user/info  \
+	--header "X-System: d" \
+	--header "X-Signature: <sign>" \
+	--data '{"email": "<email>", "need_role": true}' | jq -C   
+
+$ env: echo -e ".stg\n"
+$ sign: echo -e "cd78c0e4e904f621a477ef8c9f407bd4\nef78c0e4e904f621a477ef8c9f407bd5"
+$ email: echo -e "wang.kaixuan@ctw.inc\n"

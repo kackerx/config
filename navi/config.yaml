@@ -13,7 +13,7 @@ style:
 cheats:
   paths:
     - ~/.config/navi
-    - ~/.local/share/navi/cheats
+    # - ~/.local/share/navi/cheats
 
 finder:
   fzf:
