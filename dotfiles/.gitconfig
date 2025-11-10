@@ -1,0 +1,48 @@
+[user]
+	name = kaixuan188
+	email = wang.kaixuan@ctw.inc
+[merge]
+	; tool = goland
+    conflictStyle = zdiff3
+[mergetool "goland"]
+	cmd = goland merge $LOCAL $REMOTE $BASE $MERGED
+	trustExitCode = false
+[diff]
+	tool = code
+[difftool "goland"]
+	cmd = goland diff \\$LOCAL \\$REMOTE
+	trustExitCode = false
+[difftool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[difftool]
+	prompt = false
+[alias]
+	lg = log --all --graph --color=always --pretty=format:'%C(yellow)%h%Creset  %<(15,trunc)%C(cyan)%an%Creset  %<(20,trunc)%C(blue)%ad%Creset  %C(auto)%d%Creset  %<(80,trunc)%s%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
+[push]
+	default = current
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[mergetool]
+	keepBackup = false
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    dark = true
+	true-color = always
+	hyperlinks = true
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+	side-by-side = true
+	syntax-theme = Monokai Extended
+	hunk-header-style = file line-number syntax
+
+    # delta detects terminal colors automatically; set one of these to disable auto-detection
+    # light = true
+

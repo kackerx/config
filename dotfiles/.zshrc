@@ -373,7 +373,8 @@ fzfp() {
 		--header 'CTRL-T: Switch between rg/fzf' \
 		--preview 'bat --color=always {1} --highlight-line {2}' \
 		--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-		--bind 'enter:become(code {1} +{2})'
+		--bind 'enter:become(code -g {1}:{2}:{3})'
+		# --bind 'enter:become(nvim {1} +{2})'
 }
 
  _fzf_project_widget() {
