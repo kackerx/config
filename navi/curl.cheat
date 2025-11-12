@@ -31,3 +31,13 @@ curl -sS --request POST \
 $ env: echo -e ".stg\n"
 $ sign: echo -e "cd78c0e4e904f621a477ef8c9f407bd4\nef78c0e4e904f621a477ef8c9f407bd5"
 $ email: echo -e "wang.kaixuan@ctw.inc\n"
+
+# sse 
+
+curl 'https://d.g123.jp/api/v1/sse' \
+  -H 'accept: text/event-stream' \
+  -H "authorization: Bearer $TOKEN" \
+  --data-raw '{"metadata":{"type":"agent_proxy","context":{"files":[],"cue":[],"table_info":{"table_id":"tble180440f-4644-448a-9fe","view_id":"viwd3vctd9f9dc3isjg3j7g","base_id":"bse674d1b1f-f5c0-4807-9fc"}},"completion_options":{}},"attachments":[],"query":"<query>","cid":<cid>}'
+
+$ cid: echo -e "\n"
+$ query: echo -e "你好呀\n"

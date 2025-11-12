@@ -443,4 +443,4 @@ unbind-key [
 bind-key q copy-mode
 
 bind-key -n C-k send-keys -R \; send-keys C-l
-
+bind n if-shell "tmux show-window-options -v synchronize-panes | grep -q on" "setw synchronize-panes off" "setw synchronize-panes on"
