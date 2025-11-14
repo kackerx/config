@@ -372,7 +372,8 @@ fzfp() {
 		--delimiter : \
 		--header 'CTRL-T: Switch between rg/fzf' \
 		--preview 'bat --color=always {1} --highlight-line {2}' \
-		--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+		--preview-window 'right,45%,border-bottom,+{2}+3/3,~3' \
+		--layout=reverse \
 		--bind 'enter:become(code -g {1}:{2}:{3})'
 		# --bind 'enter:become(nvim {1} +{2})'
 }
