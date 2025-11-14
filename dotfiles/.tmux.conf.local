@@ -407,7 +407,7 @@ TMUX_FZF_LAUNCH_KEY="F"
 TMUX_FZF_OPTIONS="--layout=reverse -p -w 77% -h 77% -m"
 TMUX_FZF_PREVIEW=1
 TMUX_FZF_ORDER="pane|session|window|command|keybinding|clipboard|process"
-TMUX_FZF_SWITCH_CURRENT=1
+TMUX_FZF_SWITCH_CURRENT=0
 bind-key "k" run-shell -b "~/.tmux/plugins/tmux-fzf/scripts/pane.sh switch"
 
 set -g @plugin 'roosta/tmux-fuzzback'
@@ -453,4 +453,5 @@ unbind-key [
 bind-key q copy-mode
 
 bind-key -n C-k send-keys -R \; send-keys C-l
-bind n if-shell "tmux show-window-options -v synchronize-panes | grep -q on" "setw synchronize-panes off" "setw synchronize-panes on"
+bind m if-shell "tmux show-window-options -v synchronize-panes | grep -q on" "setw synchronize-panes off" "setw synchronize-panes on"
+bind-key n select-window -l
