@@ -1,0 +1,47 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my_app
+    ports:
+      - 8080:8080
+    # volumes:
+    #   - ./app:/app # 源码目录挂载容器, 配合air自动重启
+    environment:
+      - APP_PORT=8080
+      - DB_HOST=pg-db
+      - DB_NAME=user
+      - DB_PASSWORD=pass
+      - DB_NAME=pg
+      - DB_PORT=5432
+    depends_on:
+      pg-db:
+        condition: service_healthy
+    networks:
+      - app-net
+  pg-db:
+    image: postgres:15-alpine
+    container_name: my_pg
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: pg
+    volumes:
+      - pg_dev_data:/var/lib/postgresql/data
+    ports:
+      - 5435:5432
+    networks:
+      - app-net
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U user -d pg
+      interval: 5s
+      timeout: 3s
+      retries: 5
+networks:
+  app-net:
+    driver: bridge
+volumes:
+  pg_dev_data:

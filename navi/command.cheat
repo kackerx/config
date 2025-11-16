@@ -7,3 +7,18 @@ fd --exclude "<keyword>" <dir>
 $ keyword: echo -e "\n"
 $ dir: echo -e ".\n"
 
+# tee > 剪切板并且bat输出stdout
+
+cat <<'EO' | tee >(pbcopy) | bat --file-name="tee pbcopy" -l bash
+
+cat <<'EOF' | tee >(pbcopy) | bat --file-name="<title>" -l <type>
+
+EOF
+
+EO
+
+$ type: echo -e "sql\n"
+$ title: echo -e "\n"
+
+
+

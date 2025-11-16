@@ -372,8 +372,10 @@ fzfp() {
 		--delimiter : \
 		--header 'CTRL-T: Switch between rg/fzf' \
 		--preview 'bat --color=always {1} --highlight-line {2}' \
-		--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-		--bind 'enter:become(code {1} +{2})'
+		--preview-window 'right,45%,border-bottom,+{2}+3/3,~3' \
+		--layout=reverse \
+		--bind 'enter:become(code -g {1}:{2}:{3})'
+		# --bind 'enter:become(nvim {1} +{2})'
 }
 
  _fzf_project_widget() {
@@ -447,12 +449,14 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 function oo() {
 	navi --fzf-overrides '--no-exact --layout=reverse'
+	zle accept-line
+	# zle redisplay
 }
 zle -N oo
 bindkey '^p' oo
 
 function swenv() {
-  local env_dir="$HOME/k/env"
+  local env_dir="$HOME/.config/env"
   local shared_file="$env_dir/.env.share"
 
   # 如果没有提供参数，则列出可用环境

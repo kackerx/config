@@ -400,10 +400,20 @@ unbind-key F
 # 注意：这里的脚本路径需要根据你的实际情况填写，通常 TPM 会把插件装在 ~/.tmux/plugins/ 目录下
 # bind-key f command-prompt -p "Filter pattern:" "run-shell 'bash ~/.tmux/plugins/tmux-filter/scripts/live-filter.bash \"%%\" #{pane_id}'"
 set -g @plugin 'sainnhe/tmux-fzf'
+TMUX_FZF_MENU_POPUP=1
+TMUX_FZF_MENU_POPUP_WIDTH=50%
+TMUX_FZF_MENU_POPUP_HEIGHT=50%
+TMUX_FZF_LAUNCH_KEY="F"
+TMUX_FZF_OPTIONS="--layout=reverse -p -w 77% -h 77% -m"
+TMUX_FZF_PREVIEW=1
+TMUX_FZF_ORDER="pane|session|window|command|keybinding|clipboard|process"
+TMUX_FZF_SWITCH_CURRENT=0
+bind-key "k" run-shell -b "~/.tmux/plugins/tmux-fzf/scripts/pane.sh switch"
+
 set -g @plugin 'roosta/tmux-fuzzback'
 set -g @fuzzback-bind f
 set -g @fuzzback-popup 1
-set -g @fuzzback-popup-size '70%'
+set -g @fuzzback-popup-size '85%'
 set -g @fuzzback-finder-layout 'reverse'
 # set -g @fuzzback-fzf-colors 'bg+:#100E23,gutter:#323F4E,pointer:#F48FB1,info:#ffe6b3,hl:#F48FB1,hl+:#63f2f1'
 
@@ -443,4 +453,5 @@ unbind-key [
 bind-key q copy-mode
 
 bind-key -n C-k send-keys -R \; send-keys C-l
-
+bind m if-shell "tmux show-window-options -v synchronize-panes | grep -q on" "setw synchronize-panes off" "setw synchronize-panes on"
+bind-key n select-window -l

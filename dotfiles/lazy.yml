@@ -1,0 +1,85 @@
+os:
+  edit: cursor {{filename}}
+  open: code {{filename}}
+gui:
+  sidePanelWidth: 0.35
+  switchTabsWithPanelJumpKeys: true
+  commitHashLength: 6
+  showPanelJumps: false
+  showBottomLine: false
+  showCommandLog: false
+  showFileTree: false
+  showListFooter: false
+  useHunkModeInStagingView: true
+  expandFocusedSidePanel: true # 自适应panel高度
+  border: rounded
+  nerdFontsVersion: "3"
+  scrollOffMargin: 3
+  theme:
+    # Border color of focused window
+    activeBorderColor:
+      - yellow
+      - bold
+    selectedLineBgColor:
+      - reverse
+    searchingActiveBorderColor:
+      - cyan
+      - bold
+  branchColorPatterns:
+    ^feat/: '#11aaff' # use a light blue for branches beginning with 'docs/'
+    ^hotfix/: '#ff5733' # use a bright orange for branches containing 'ISSUE-<some-number>'
+  customIcons:
+    filenames:
+      CONTRIBUTING.md:
+        icon: 
+        color: '#FEDDEF'
+      service.py:
+        icon: 
+        color: '#FEDDEF'
+    extensions:
+      .go:
+        icon: "\U000F011B"
+        color: '#BC4009'
+      .dog:
+        icon: "\U000F0A43"
+        color: '#B6977E'
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never --line-numbers --features=colibri --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  commitPrefix:
+    - pattern: ^feat/(\w+.*) # 匹配 feat/ 开头的分支
+      replace: 'feat: '
+    - pattern: ^hotfix/(\w+.*) # 匹配 hotfix/ 开头的分支
+      replace: 'fix: '
+    - pattern: ^fix/(\w+.*) # 匹配 fix/ 开头的分支
+      replace: 'fix: '
+    - pattern: ^chore/(\w+.*) # 匹配 chore/ 开头的分支
+      replace: 'chore: '
+    - pattern: ^(\w+)/(\w+-\w+).* # 默认分支匹配规则（可选）
+      replace: '[$0]: '
+  branchPrefix: feat/
+  # branchLogCmd: git log --all --graph --color=always --pretty=format:'%<(80,trunc)%s%Creset  %C(blue)%ad%Creset  %C(cyan)%<(15,trunc)%an%Creset  %C(yellow)%h%Creset  %C(auto)%d%Creset' --date=relative {{branchName}} --
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=format:'%C(yellow)%h%Creset  %C(auto)%d%Creset  %C(blue)%ad%Creset  %C(cyan)%an%Creset  %s%Creset' {{branchName}} --
+  universal:
+    jumpToBlock:
+      - "2"
+      - "4"
+      - "4"
+      - "4"
+      - "5"
+    nextTab: "3"
+    prevTab: "1"
+customCommands:
+  - key: a
+    description: Checkout a remote branch as FETCH_HEAD
+    command: git fetch {{.Form.Remote}} {{.Form.Branch}} && git checkout FETCH_HEAD
+    context: localBranches
+    prompts:
+      - type: menuFromCommand
+        title: 'Remote branch:'
+        key: Branch
+        command: git branch  -r --list {{.SelectedRemote.Name }}/*
+        filter: .*{{.SelectedRemote.Name }}/(.*)
+        valueFormat: '{{ .group_1 }}'
+        labelFormat: '{{ .group_1 | green }}'

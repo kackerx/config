@@ -1,0 +1,10 @@
+% d api
+
+# POST /internal/user/info
+
+curl -sS --request POST \
+	--url $HOST/internal/user/info \
+	--header "Authorization: Bearer $TOKEN" \
+	--data '{"email": "<email>"}' | jq -C   
+
+$email: echo -e "\nwang.kaixuan@ctw.inc"

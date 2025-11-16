@@ -1,0 +1,11 @@
+% sql json
+
+# 数组字段存在且不为空
+
+
+cat <<'EOF' | tee >(pbcopy) | bat --file-name="sql array key exist" -l sql
+jsonb_path_exists(<field>, '$.<key>[*]') 
+EOF
+
+$ field: echo -e "\n"
+$ key:   echo -e "\n"
