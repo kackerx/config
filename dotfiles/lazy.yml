@@ -1,3 +1,10 @@
+keybinding:
+  branches:
+    nextTab: '3'
+    previousTab: '1'
+  files:
+    nextTab: '3'
+    previousTab: '1'
 os:
   edit: cursor {{filename}}
   open: code {{filename}}
@@ -12,7 +19,7 @@ gui:
   showListFooter: false
   useHunkModeInStagingView: true
   expandFocusedSidePanel: true # 自适应panel高度
-  border: rounded
+  border: dashed # rounded
   nerdFontsVersion: "3"
   scrollOffMargin: 3
   theme:
@@ -44,9 +51,9 @@ gui:
         icon: "\U000F0A43"
         color: '#B6977E'
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --line-numbers --features=colibri --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --line-numbers --features=colibri --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   commitPrefix:
     - pattern: ^feat/(\w+.*) # 匹配 feat/ 开头的分支
       replace: 'feat: '
