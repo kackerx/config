@@ -1,6 +1,6 @@
-% debug curl
+% d api curl
 
-# delete cache
+# DELETE /internal/cache # delete cache
 
 curl --request DELETE \
 	--url $HOST/internal/cache \
@@ -10,7 +10,7 @@ curl --request DELETE \
 $ data: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
 
 
-# get cache
+# POST /internal/cache # get cache
 
 curl --request POST \
 	--url $HOST/internal/cache \
@@ -19,18 +19,6 @@ curl --request POST \
 
 $ op: echo -e "get\nkeys"
 $ args: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
-
-# get user info 
-
-curl -sS --request POST \
-	--url https://p-api<env>.g123.jp/api/v1/external/user/info  \
-	--header "X-System: d" \
-	--header "X-Signature: <sign>" \
-	--data '{"email": "<email>", "need_role": true}' | jq -C   
-
-$ env: echo -e ".stg\n"
-$ sign: echo -e "cd78c0e4e904f621a477ef8c9f407bd4\nef78c0e4e904f621a477ef8c9f407bd5"
-$ email: echo -e "wang.kaixuan@ctw.inc\n"
 
 # sse 
 
@@ -41,3 +29,15 @@ curl 'https://d.g123.jp/api/v1/sse' \
 
 $ cid: echo -e "\n"
 $ query: echo -e "你好呀\n"
+
+% p api curl
+
+# POST external/user/info
+
+curl -sS --request POST \
+	--url https://p-api$PENV.g123.jp/api/v1/external/user/info  \
+	--header "X-System: d" \
+	--header "X-Signature: $PSIGN" \
+	--data '{"email": "<account>@ctw.inc", "need_role": true}' | jq -C   
+
+$ account: echo -e "wang.kaixuan\n"

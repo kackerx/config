@@ -77,3 +77,18 @@ func bytesToString(b []byte) string {
     return *(*string)(unsafe.Pointer(&b))
 }
 EOF
+
+% go pprof
+
+# pprof
+bat --file-name="in-place filter" -l bash <<'EOF'
+
+ # 获取cpu profile
+curl -o cpu.pprof http://localhost:6060/debug/pprof/profile?seconds=30
+
+ # 获取memory profile
+curl -o cpu.pprof http://localhost:6060/debug/pprof/heap?seconds=30
+
+ # web分析
+go tool pprof -http=:8081 ./app cpu.prof
+EOF

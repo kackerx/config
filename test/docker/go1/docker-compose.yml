@@ -28,7 +28,7 @@ services:
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: pg
     volumes:
-      - pg_dev_data:/var/lib/postgresql/data
+      - pg_dev_data: /var/lib/postgresql/data
     ports:
       - 5435:5432
     networks:
@@ -43,5 +43,4 @@ services:
 networks:
   app-net:
     driver: bridge
-volumes:
-  pg_dev_data:
+volumes: pg_dev_data

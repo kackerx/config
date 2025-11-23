@@ -1,4 +1,4 @@
-% d api
+% d api curl
 
 # POST /internal/user/info
 
@@ -8,3 +8,9 @@ curl -sS --request POST \
 	--data '{"email": "<email>"}' | jq -C   
 
 $email: echo -e "\nwang.kaixuan@ctw.inc"
+
+# fake user
+
+echo "X-Request-fake_user: <account>@ctw.inc" | pbcopy
+
+$account: echo -e "\n"

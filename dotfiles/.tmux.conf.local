@@ -417,6 +417,8 @@ set -g @fuzzback-popup-size '85%'
 set -g @fuzzback-finder-layout 'reverse'
 # set -g @fuzzback-fzf-colors 'bg+:#100E23,gutter:#323F4E,pointer:#F48FB1,info:#ffe6b3,hl:#F48FB1,hl+:#63f2f1'
 
+set -g @plugin 'tmux-plugins/tmux-urlview'
+# set -g @urlview-key 'o'
 # -- custom variables ----------------------------------------------------------
 
 # to define a custom #{foo} variable, define a POSIX shell function between the
