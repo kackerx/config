@@ -1,0 +1,9 @@
+% redis lua 
+
+# sliding window
+
+bat -l lua <<'EF'
+local key = ARGS[0]
+
+EOF
+
