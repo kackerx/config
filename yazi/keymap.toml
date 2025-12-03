@@ -100,7 +100,7 @@ keymap = [
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
 	# Filter
-	# { on = "f", run = "filter --smart", desc = "Filter files" },
+	{ on = "f", run = "filter --smart", desc = "Filter files" },
 
 	# Find
 	{ on = "/", run = "find --smart",            desc = "Find next file" },
@@ -410,10 +410,10 @@ on   = [ "g", "l" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
 
-[[mgr.prepend_keymap]]
-on   = "f"
-run  = "plugin smart-filter"
-desc = "Smart filter"
+# [[mgr.prepend_keymap]]
+# on   = "f"
+# run  = "plugin smart-filter"
+# desc = "Smart filter"
 
 [[mgr.prepend_keymap]]
 on   = "T"
