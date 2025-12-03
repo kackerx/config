@@ -82,8 +82,8 @@ keymap = [
 	{ on = "s",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
-	{ on = "Z",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
-	# { on = "Z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
+	{ on = "F",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
+	{ on = "z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
@@ -100,7 +100,7 @@ keymap = [
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
 	# Filter
-	{ on = "f", run = "filter --smart", desc = "Filter files" },
+	# { on = "f", run = "filter --smart", desc = "Filter files" },
 
 	# Find
 	{ on = "/", run = "find --smart",            desc = "Find next file" },
@@ -411,7 +411,7 @@ run  = "plugin lazygit"
 desc = "run lazygit"
 
 [[mgr.prepend_keymap]]
-on   = "F"
+on   = "f"
 run  = "plugin smart-filter"
 desc = "Smart filter"
 
@@ -433,7 +433,7 @@ desc = "Show Git file changes"
 
 # `z` to jump to git root and then search
 [[mgr.prepend_keymap]]
-on   = "z"
+on   = "m"
 run  = [
     'shell -- ya emit cd "$(git rev-parse --show-toplevel)"',
     "search --via=fd",
