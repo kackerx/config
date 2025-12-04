@@ -43,5 +43,10 @@ use = "llanosrocas/githead"
 rev = "230dc7f"
 hash = "d8c2bf67a4da2a2af89f981ce2f7ba22"
 
+[[plugin.deps]]
+use = "ciarandg/cd-git-root"
+rev = "a0e0f4b"
+hash = "b84a85f3b513bd9c0a0ab93cc7c8e4c3"
+
 [flavor]
 deps = []

@@ -82,7 +82,7 @@ keymap = [
 	{ on = "s",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
-	{ on = "Z",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
+	# { on = "Z",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	# { on = "Z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
@@ -389,9 +389,13 @@ on   = "p"
 run  = "plugin smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
+# [[mgr.prepend_keymap]]
+# on = [ "g", "r" ]
+# run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
 [[mgr.prepend_keymap]]
-on = [ "g", "r" ]
-run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+on   = [ "g", "r" ]
+run  = "plugin cd-git-root"
+desc = "Go to root"
 
 [[mgr.prepend_keymap]]
 on  = "<Up>"
@@ -433,9 +437,17 @@ desc = "Show Git file changes"
 
 # `z` to jump to git root and then search
 [[mgr.prepend_keymap]]
+on   = "Z"
+run  = [
+    'plugin cd-git-root',
+    "search --via=fd",
+]
+desc = "Jump to git root and search via fd"
+
+[[mgr.prepend_keymap]]
 on   = "z"
 run  = [
-    'shell -- ya emit cd "$(git rev-parse --show-toplevel)"',
-    "search --via=fd",
+    'plugin cd-git-root',
+    "plugin fzf",
 ]
 desc = "Jump to git root and search via fd"
