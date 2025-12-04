@@ -347,6 +347,9 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+zle -N y
+
+bindkey '^o' y
 
 [ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
 
@@ -432,13 +435,13 @@ pp() {
 	pet search --color "$@" | pbcopy
 }
 
-function pet-copy() {
-	pet search --query "$LBUFFER" | pbcopy
-    zle redisplay
-}
-
-zle -N pet-copy
-bindkey '^o' pet-copy
+# function pet-copy() {
+# 	pet search --query "$LBUFFER" | pbcopy
+#     zle redisplay
+# }
+#
+# zle -N pet-copy
+# bindkey '^o' pet-copy
 
 source "$HOME/.config/fzf-git.sh"
 export PATH="$HOME/.local/bin:$PATH"

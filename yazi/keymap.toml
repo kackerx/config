@@ -445,7 +445,7 @@ run  = [
 desc = "Jump to git root and search via fd"
 
 [[mgr.prepend_keymap]]
-on   = "z"
+on   = "Z"
 run  = [
     'plugin cd-git-root',
     "plugin fzf",
