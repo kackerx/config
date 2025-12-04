@@ -84,3 +84,43 @@ function Linemode:size_and_mtime()
 	local size = self._file:size()
 	return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
+
+require("mactag"):setup {
+	-- Keys used to add or remove tags
+	keys = {
+		r = "Red",
+		o = "Orange",
+		y = "Yellow",
+		g = "Green",
+		b = "Blue",
+		p = "Purple",
+	},
+	-- Colors used to display tags
+	colors = {
+		Red    = "#ee7b70",
+		Orange = "#f5bd5c",
+		Yellow = "#fbe764",
+		Green  = "#91fc87",
+		Blue   = "#5fa3f8",
+		Purple = "#cb88f8",
+	},
+}
+
+-- ~/.config/yazi/init.lua
+require("bookmarks"):setup({
+	last_directory = { enable = false, persist = false, mode="dir" },
+	persist = "all",
+	desc_format = "full",
+	file_pick_mode = "hover",
+	custom_desc_input = false,
+	show_keys = false,
+	notify = {
+		enable = true,
+		timeout = 1,
+		message = {
+			new = "New bookmark '<key>' -> '<folder>'",
+			delete = "Deleted bookmark in '<key>'",
+			delete_all = "Deleted all bookmarks",
+		},
+	},
+})
