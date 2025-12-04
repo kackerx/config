@@ -1,0 +1,7 @@
+% go load balance
+
+# Polling, 轮询
+
+bat -l go <<'EOF'
+
+EOF

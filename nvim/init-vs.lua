@@ -37,7 +37,7 @@ vim.keymap.set("n", "d'", "di'", { desc = "down" })
 vim.keymap.set("n", "c'", "ci'", { desc = "down" })
 
 
-vim.keymap.set({'n'}, 'yz', function() vim.fn.VSCodeNotify('yazi-vscode.toggle') end,
+vim.keymap.set({'n'}, '<leader>b', function() vim.fn.VSCodeNotify('yazi-vscode.toggle') end,
  { silent = true })
 vim.keymap.set({'n', 'v'}, 'gn', function() vim.fn.VSCodeNotify('git-worktree-manager.addWorktree') end,
  { silent = true })
