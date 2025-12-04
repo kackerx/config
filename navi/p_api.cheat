@@ -18,7 +18,7 @@ curl --request POST \
 	--data '{"op": "<op>", "args": ["<args>"]}' | jq -C   
 
 $ op: echo -e "get\nkeys"
-$ args: echo -e "p:employees:wang.kaixuan@ctw.inc\n"
+$ args: echo -e "p:employees:wang.kaixuan@ctw.inc\nperm:wang.jintao@ctw.inc:table:null:tbld4jbpcae4t3s73dskfsg\n"
 
 # sse 
 

@@ -225,6 +225,7 @@ KEYTIMEOUT=1
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 setopt no_nomatch
+alias k="tsh kubectl"
 alias gc="goctl"
 alias gt="git status"
 alias gt="git status"
@@ -302,6 +303,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export PATH="$PATH":"/usr/local/Caskroom/flutter/2.0.3/flutter/.pub-cache/bin"
+export PATH="$PATH":"$HOME/.config/bin"
 
 # z.lua
 # eval "$(lua ~/z.lua  --init zsh once enhanced)"
@@ -345,6 +347,9 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+zle -N y
+
+bindkey '^o' y
 
 [ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
 
@@ -430,13 +435,13 @@ pp() {
 	pet search --color "$@" | pbcopy
 }
 
-function pet-copy() {
-	pet search --query "$LBUFFER" | pbcopy
-    zle redisplay
-}
-
-zle -N pet-copy
-bindkey '^o' pet-copy
+# function pet-copy() {
+# 	pet search --query "$LBUFFER" | pbcopy
+#     zle redisplay
+# }
+#
+# zle -N pet-copy
+# bindkey '^o' pet-copy
 
 source "$HOME/.config/fzf-git.sh"
 export PATH="$HOME/.local/bin:$PATH"
@@ -457,16 +462,16 @@ bindkey '^p' oo
 
 function swenv() {
   local env_dir="$HOME/.config/env"
-  local shared_file="$env_dir/.env.share"
+  local shared_file="$env_dir/share"
 
   # 如果没有提供参数，则列出可用环境
   if [[ -z "$1" ]]; then
     echo "Usage: switch-env <environment>"
     echo "Available environments in ${env_dir}:"
-    for f in "$env_dir"/.env.*; do
+    for f in "$env_dir"/*; do
       if [[ -f "$f" && "$f" != "$shared_file" ]]; then
         local filename=$(basename "$f")
-        echo "  - ${filename#.env.}"
+        echo "  - ${filename}"
       fi
     done
     return 1
@@ -479,7 +484,7 @@ function swenv() {
   fi
   # --- 结束新增逻辑 ---
 
-  local env_file="$env_dir/.env.$1"
+  local env_file="$env_dir/$1"
 
   if [[ ! -f "$env_file" ]]; then
     echo "Error: Environment file not found: $env_file"
