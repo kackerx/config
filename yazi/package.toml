@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
 [[plugin.deps]]
@@ -15,27 +15,27 @@ hash = "ee71543790f0ce3951161045a3787abd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "bcda8eeb3f4013bae156aecabfc745e8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:vcs-files"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "4ee57085277d616acfa0ef1fef37dc00"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "27ca02f49fd236b5cc7bf03c243859fe"
 
 [[plugin.deps]]
@@ -50,13 +50,8 @@ hash = "b84a85f3b513bd9c0a0ab93cc7c8e4c3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mactag"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "326eb39db39c855a1d564b777b810f05"
-
-[[plugin.deps]]
-use = "dedukun/bookmarks"
-rev = "9ef1254"
-hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[flavor.deps]]
 use = "gosxrgxx/flexoki-dark"
